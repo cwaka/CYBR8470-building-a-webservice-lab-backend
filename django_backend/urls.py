@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^api/', include(api_urls)),
     url(r'^xss-example/', controllers.xss_example),
     url(r'^', controllers.home),
+
 ]
