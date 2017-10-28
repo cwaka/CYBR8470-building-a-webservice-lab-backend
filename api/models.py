@@ -17,6 +17,33 @@ class Event(models.Model):
     def __str__(self):
         return str(self.eventtype)
 
+class Breed(models.Model):
+     name = models.CharField(max_length=1000, blank=False)
+     size = models.CharField(max_length=1000, blank=False)
+     friendliness = models.IntegerField ()
+     trainability = models.IntegerField()
+     sheddingamount = models.IntegerField()
+     exerciseneeds = models.IntegerField()
+
+
+     def __str__(self):
+         return str(self.name)
+
+class Dog(models.Model):
+    name = models.CharField(max_length=1000, blank=False)
+    age  = models.IntegerField()
+    gender = models.CharField(max_length=1000)
+    color =  models.CharField(max_length=1000)
+    favoritefood = models.CharField(max_length=1000)
+    favoritetoy = models.CharField(max_length=1000)
+    breed = models.ForeignKey(Breed,on_delete=models.CASCADE, blank=True)
+
+
+    def __str__(self):
+        return str(self.name)
+
+
+
 class EventAdmin(admin.ModelAdmin):
     list_display = ('eventtype', 'timestamp')
 
